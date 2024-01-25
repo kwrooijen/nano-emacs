@@ -60,7 +60,7 @@
 (call-interactively 'nano-refresh-theme)
 
 ;; Nano default settings (optional)
-(require 'nano-defaults)
+;; (require 'nano-defaults)
 
 ;; Nano session saving (optional)
 (require 'nano-session)
@@ -69,12 +69,12 @@
 (require 'nano-modeline)
 
 ;; Nano key bindings modification (optional)
-(require 'nano-bindings)
+;; (require 'nano-bindings)
 
 ;; Compact layout (need to be loaded after nano-modeline)
 (when (member "-compact" command-line-args)
   (require 'nano-compact))
-  
+
 ;; Nano counsel configuration (optional)
 ;; Needs "counsel" package to be installed (M-x: package-install)
 ;; (require 'nano-counsel)
