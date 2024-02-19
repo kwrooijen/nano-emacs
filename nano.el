@@ -66,7 +66,7 @@
 (require 'nano-session)
 
 ;; Nano header & mode lines (optional)
-(require 'nano-modeline)
+;; (require 'nano-modeline)
 
 ;; Nano key bindings modification (optional)
 ;; (require 'nano-bindings)

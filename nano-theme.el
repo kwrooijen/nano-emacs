@@ -52,7 +52,7 @@ Defaults to nil."
                           :box        'unspecified :inherit    style)
     (message "NANO Warning: Face %s could not be set. It may not be defined."
              face)))
-  
+
 
 
 (defun nano-theme--basics ()
@@ -139,65 +139,6 @@ Defaults to nil."
   (set-face 'font-lock-builtin-face                  'nano-face-salient)
   (set-face 'font-lock-type-face                     'nano-face-salient)
   (set-face 'font-lock-keyword-face                  'nano-face-salient))
-
-
-(defun nano-theme--mode-line ()
-  "Derive mode-line and header-line faces from nano-faces."
-  (set-face-attribute 'mode-line nil
-                      :height 0.1
-                      :foreground (if (display-graphic-p)
-                                      (face-background 'nano-face-default)
-                                    (face-foreground 'nano-face-default))
-                      :background (face-background 'nano-face-default)
-                      :underline  (if (display-graphic-p)
-                                      (face-background 'nano-face-subtle)
-                                    t)
-                      :overline nil
-                      :box nil)
-  (set-face-attribute 'mode-line-inactive nil
-                      :height 0.1
-                      :foreground (if (display-graphic-p)
-                                      (face-background 'nano-face-default)
-                                    (face-foreground 'nano-face-default))
-                      :background (face-background 'nano-face-default)
-                      :underline (if (display-graphic-p)
-                                     (face-background 'nano-face-subtle)
-                                   t)
-                      :overline nil
-                      :inherit nil
-                      :box nil)
-  
-  ;;(when (display-graphic-p)
-  (set-face-attribute 'header-line nil
-                       :weight 'light
-                       :foreground (face-foreground 'nano-face-default)
-                       :background (face-background 'nano-face-default)
-
-                       :overline nil
-                       :underline nil
-                       :box nil
-                       :box `(:line-width 1
-                                          :color ,(face-background 'nano-face-default)
-                                          :style nil)
-                       :inherit nil)
-
-  ;; (when (not (display-graphic-p))
-  ;;   (set-face-attribute 'header-line nil
-  ;;                    :weight 'light
-  ;;                       :foreground (face-foreground 'nano-face-default)
-  ;;                       :background (face-background 'nano-face-subtle)
-  ;;                       :inverse-video t
-  ;;                       :overline nil
-  ;;                       :underline nil
-  ;;                       :box nil
-  ;;                            :inherit nil))
-
-  ;; (set-face-attribute 'internal-border nil
-  ;;                     :background (face-foreground 'nano-face-default))
-
-  (set-face-attribute 'internal-border nil
-                       :background (face-background 'nano-face-default)))
-
 
 (defun nano-theme--minibuffer ()
   "Derive minibuffer / echo area faces from nano faces."
@@ -736,19 +677,19 @@ function is a convenience wrapper used by `describe-package-1'."
   (with-eval-after-load 'company
     (set-face 'company-tooltip-selection                   '(nano-face-strong nano-face-subtle))
     (set-face-attribute 'company-tooltip-selection nil :background nano-color-popout)
-    
+
     (set-face 'company-tooltip                                               'nano-face-subtle)
 
     (set-face 'company-scrollbar-fg                                          'nano-face-faded)
     (set-face-attribute 'company-scrollbar-fg nil :background nano-color-foreground)
-    
+
     (set-face 'company-scrollbar-bg                                          'nano-face-default)
     (set-face-attribute 'company-scrollbar-bg nil :background nano-color-faded)
 
     (set-face 'company-tooltip-common                                        'nano-face-faded)
     (set-face 'company-tooltip-common-selection            '(nano-face-strong nano-face-subtle))
     (set-face-attribute 'company-tooltip-common-selection nil :background nano-color-popout)
-    
+
     (set-face 'company-tooltip-annotation                                    'nano-face-default)
     (set-face 'company-tooltip-annotation-selection        '(nano-face-strong nano-face-subtle))))
 
@@ -756,7 +697,6 @@ function is a convenience wrapper used by `describe-package-1'."
   "Derive many, many faces from the core nano faces."
   (nano-theme--basics)
   (nano-theme--font-lock)
-  (nano-theme--mode-line)
   (nano-theme--minibuffer)
   (nano-theme--buttons)
   (nano-theme--info)
